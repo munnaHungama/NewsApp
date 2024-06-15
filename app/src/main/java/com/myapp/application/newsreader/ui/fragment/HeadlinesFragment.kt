@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myapp.application.newsreader.R
-import com.myapp.application.newsreader.adapters.ArticlesAdapter
 import com.myapp.application.newsreader.databinding.FragmentHeadlinesBinding
+import com.myapp.application.newsreader.adapters.ArticlesAdapter
 import com.myapp.application.newsreader.models.Article
 import com.myapp.application.newsreader.viewmodel.NewsViewModel
 import com.myapp.application.newsreader.util.CommonUtils.Companion.showToastMessage

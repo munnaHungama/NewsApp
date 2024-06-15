@@ -2,7 +2,6 @@ package com.myapp.application.newsreader.db
 
 import androidx.room.TypeConverter
 import com.myapp.application.newsreader.models.Source
-import okhttp3.internal.notify
 
 class Converters {
 

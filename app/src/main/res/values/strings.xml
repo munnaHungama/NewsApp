@@ -2,6 +2,7 @@
     <string name="app_name">News Reader</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="bookmark">Bookmarks</string>
+    <string name="no_bookmark">No Bookmarks</string>
     <string name="search">Search</string>
     <string name="headlines">Headlines</string>
     <string name="search_news">Search news...</string>

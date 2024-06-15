@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.myapp.application.newsreader.R
-import com.myapp.application.newsreader.adapters.ArticlesAdapter
 import com.myapp.application.newsreader.databinding.FragmentBookmarkedBinding
+import com.myapp.application.newsreader.adapters.ArticlesAdapter
 import com.myapp.application.newsreader.models.Article
 import com.myapp.application.newsreader.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,6 +61,9 @@ class BookmarkedFragment : Fragment(R.layout.fragment_bookmarked), ArticlesAdapt
 
         newsViewModel.getBookmarkedNews().observe(viewLifecycleOwner) {
             articleAdapter.submitList(it)
+
+                binding.bookmarkFragment.text = if (it.isEmpty()) getString(R.string.no_bookmark) else getText(R.string.bookmark)
+
         }
     }
 
