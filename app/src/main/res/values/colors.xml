@@ -7,4 +7,7 @@
     <color name="blue">#350480</color>
     <color name="yellow">#FFC000</color>
     <color name="green">#4CAF50</color>
+    <color name="textHeadingColor">#000</color>
+    <color name="grey_normal">#706E6E</color>
+    <color name="grey_night">#BFBFBF</color>
 </resources>

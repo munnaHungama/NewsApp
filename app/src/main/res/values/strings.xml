@@ -10,4 +10,6 @@
     <string name="removed_from_bookmark">Removed from Bookmarks</string>
     <string name="undo">Undo</string>
     <string name="country_code">us</string>
+    <string name="standard">Standard Mode</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

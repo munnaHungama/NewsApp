@@ -3,5 +3,22 @@
     <style name="Base.Theme.NewsReader" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">@color/pink</item>
+    </style>
+    <style name="TextHeading" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextHeadingItem" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="EditSearch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="android:background">@drawable/search_border_white</item>
+        <item name="android:drawableTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/grey_night</item>
     </style>
 </resources>

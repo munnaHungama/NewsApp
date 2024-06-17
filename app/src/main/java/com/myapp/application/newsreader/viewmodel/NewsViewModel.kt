@@ -81,7 +81,10 @@ class NewsViewModel @Inject constructor(
         try {
             if (hasInternetConnection(context)) {
                 val response = newsRepository.getHeadlines(countryCode, headlinesPage)
+                if (response.body() != null)
                 headlines.postValue(handleHeadlinesResponse(response))
+                else
+                    headlines.postValue(Resource.Error("No data found"))
             } else {
                 headlines.postValue(Resource.Error("No internet connection"))
             }

@@ -29,7 +29,7 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headlines), ArticlesAdapter
     var isLoading = false
     var isLastPage = false
     var isScrolling = false
-
+ var dataSize = 0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,6 +51,7 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headlines), ArticlesAdapter
                     binding.paginationProgressBar.visibility = View.INVISIBLE
                     isLoading = false
                     it.data?.let { newsResponse ->
+                        dataSize= newsResponse.articles.size
                         articleAdapter.submitList(newsResponse.articles.toList())
                         val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
                         isLastPage = viewModel.headlinesPage == totalPages
@@ -89,6 +90,7 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headlines), ArticlesAdapter
 
             val layoutManager = recyclerView.layoutManager as LinearLayoutManager
             val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+            val lastVisibleItemPosition = layoutManager.findLastCompletelyVisibleItemPosition()
             val totalVisibleItemCount = layoutManager.childCount
             val totalItemCount = layoutManager.itemCount
 
@@ -96,10 +98,9 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headlines), ArticlesAdapter
             val isAtLastItem = firstVisibleItemPosition + totalVisibleItemCount >= totalItemCount
             val isNotAtBeginning = firstVisibleItemPosition >= 0
             val isTotalMoreThanVisible = totalItemCount >= QUERY_PAGE_SIZE
-            val shouldPaginate =
-                isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
+            val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
 
-            if (shouldPaginate) {
+            if (dataSize == (lastVisibleItemPosition+1)) {
                 viewModel.getHeadlines(COUNTRY_CODE)
                 isScrolling = false
             }
